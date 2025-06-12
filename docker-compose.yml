@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  wan2:
+    build: .
+    ports:
+      - '7860:7860'
+    volumes:
+      - 'E:/models:/hf_download'
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
